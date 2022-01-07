@@ -1,5 +1,5 @@
-# Basic Starter Kit
+# CPSC1517 Workbook Repository
 
-## Owner your name
+## Kim Joshua Barrameda
 
 alter this statement to indicate the usage of this repository
