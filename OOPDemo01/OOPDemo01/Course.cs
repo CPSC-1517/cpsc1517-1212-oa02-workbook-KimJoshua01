@@ -7,7 +7,7 @@ using static System.Console;
 // Classic object creation
 Course cpsc1517Course = new Course("CPSC1517", "Introduction to Application Development");
 
-// C Sharp new features
+// C # new features
 // var cpsc1517Course = new Course("CPSC1517", "Introduction to Application Development");
 // Course cpsc1517Course = new("CPSC1517", "Introduction to Application Development");
 
