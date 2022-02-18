@@ -9,42 +9,39 @@ namespace HockeyTeamSystem2
 {
     public class Person
     {
-        // Define an fully-implemented property with private set
-        // for FullName
-        //A private set property cannot be assigned a value 
+        // Define an auto-implemented property with a private set
+        // for the FullName
+        // A private set property cannot be assigned a value 
         // in the constructor or an instance method
-        public string FullName { get; set; }
+        public string FullName { get; private set; }
 
-        //Define a greedy constructor that takes a fullName as parameter
-        //Constructors are used to create meaningful values to the fields/properties of the class
-
+        // Define a greedy constructor that takes a fullName as parameter
+        // Constructors are used to create instance of an object
+        // and to assign meaningful values to the fields/properties of the class.
         public Person(string fullName)
         {
-            //Validate that the fullName parameter is not null, whitespaces,
-            //or an empty string.
-
+            // Validate that the fullName parameter is not null, whitespaces,
+            // or an empty string.
             if (string.IsNullOrWhiteSpace(fullName))
             {
-                throw new ArgumentNullException("Person FullName cannot be empty, null, or a whitespace");
+                throw new ArgumentNullException("Person FullName is required.");
             }
-
-            //Validate that the fullName parameter contains only 
-            //letters a-z and one or space character
-            //@"" is literal string  where the characters have no meaning 
+            // Validate that the fullName parameter contains only
+            // letters a-z and up to two space character
+            // @"" is literal string where there is no meaning to any of characters
             // ^ start of input
-            //$ end of input
-            //[] range of characters
-            //{3,} at least 3
-            //{,2} up to 2
-            var fullNameCheck = new Regex(@"^[a-zA-Z ]{3,}{,2}$");
-            if(!fullNameCheck.IsMatch(fullName))
+            // $ end of input
+            // [] range of characters
+            // {3,} at least 3
+            var fullNameCheck = new Regex(@"^[a-zA-Z \-]{3,}$");
+            if (fullNameCheck.IsMatch(fullName) == false)
             {
-                throw new ArgumentException("Person FullName must contain atleast 3 characters.");
+                throw new ArgumentException("Person FullName must contain at least 3 characters.");
             }
 
-            //the this keyword refers to the current object 
-            //and it is used to access a field or property
-            //of the object
+            // The this keyword refers to the current object
+            // and it is used to access a field or property
+            // of the current object
             this.FullName = fullName.Trim();
         }
     }
